@@ -30,7 +30,7 @@
 	<link rel="alternate" type="application/atom+xml" title="<?php bloginfo( 'name' ); ?>" href="<?php bloginfo( 'atom_url' ); ?>" />
 	
 	
-	<link href='http://fonts.googleapis.com/css?family=Arvo:400,700|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Arvo:400,700|PT+Sans:400,700,400italic|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/reset.css" type="text/css" />
 	<link rel="stylesheet/less" href="<?php bloginfo('template_url'); ?>/style.less" type="text/css" />
