@@ -33,11 +33,13 @@
 	<link href='http://fonts.googleapis.com/css?family=Arvo:400,700|PT+Sans:400,700,400italic|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/reset.css" type="text/css" />
+	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/checkboxes.css" type="text/css" />
 	<link rel="stylesheet/less" href="<?php bloginfo('template_url'); ?>/style.less" type="text/css" />
 	<script src="<?php bloginfo('template_url'); ?>/js/less-1.3.0.min.js" type="text/javascript"></script>
 
 	<?php //wp_enqueue_script("jquery"); /* Loads jQuery if it hasn't been loaded already */ ?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+	<script src="<?php bloginfo('template_url'); ?>/js/iphone-style-checkboxes.js" type="text/javascript"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/functions.js" type="text/javascript"></script>
 	
 	<?php /* The HTML5 Shim is required for older browsers, mainly older versions IE */ ?>
@@ -54,13 +56,21 @@
 </div><!--.none-->
 <div id="background_img"></div>
 <div id="main"><!-- this encompasses the entire Web site -->
-	<div id="social">
+
+<!--	<div id="social">
 		<div class="container">
 			<a href="http://www.facebook.com/clare.bayley" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/social-fb.png" /></a>
 			<a href="https://twitter.com/clarebayley" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/social-twitter.png" /></a>
 			<a href="http://clarebayley.com/feed/" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/social-rss.png" /></a>
 		</div>
+	</div>-->
+	
+	<div id="nsfw-controls">
+		<div class="container">
+			<div id="toggle"><input id="nsfw-check" type="checkbox" /></div>
+		</div>
 	</div>
+
 	<div id="nav">
 		<div class="container">
 			<?php get_search_form(); ?>
@@ -77,3 +87,10 @@
 
 	</header></div><!--#header-->
 	<div class="container">
+	
+	<?php if (is_home()) { ?>
+		<div id="warningtext">
+			<div id="warning">WARNING:</div> Some of my posts contain material inappropriate for minors and "not safe for work." You can enable/disable all "NSFW" content using the switch in the right of the header.
+		</div>
+	<? } ?>
+	
