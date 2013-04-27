@@ -67,22 +67,24 @@
 	
 	<div id="nsfw-controls">
 		<div class="container">
+		<div id="toggle-container">
 			<div id="toggle"><input id="nsfw-check" type="checkbox" /></div>
+		</div>
 		</div>
 	</div>
 
-	<div id="nav">
-		<div class="container">
-			<?php get_search_form(); ?>
-			<?php wp_nav_menu( array('theme_location' => 'header-menu') ); ?>		
-		</div>
-	</div>
+
 	<div id="header"><header>
-	<div id="banner">
-		<div id="banner-tail">&nbsp;</div>
-		<div id="banner-text">
-			<div id="clare"><a href="<?php echo home_url(); ?>">CLARE</a></div><div id="bayley"><a href="<?php echo home_url(); ?>">BAYLEY</a></div></div>
-		<div id="banner-end">&nbsp;</div>
+		<div class="container">
+		<div id="header-left">
+		<div id="clare"><a href="<?php echo home_url(); ?>">CLARE</a></div><div id="bayley"><a href="<?php echo home_url(); ?>">BAYLEY</a></div>
+		</div>
+		<div id="header-right">
+			<div id="nav-menu"><?php wp_nav_menu( array('theme_location' => 'header-menu') ); ?></div>
+			<?php get_search_form(); ?>
+		</div>
+		<div class="clear"></div>	
+	</div>
 	</div>
 
 	</header></div><!--#header-->

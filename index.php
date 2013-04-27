@@ -46,11 +46,13 @@
 			</div><!--noResults-->
 		<?php endif; ?>
 			
+		<?php if (next_posts_link('next') != '' || previous_posts_link('prev') != ''){ ?>
 		<div class="newer-older">
 			<p class="older"><?php next_posts_link('&laquo; Older Entries') ?></p>
 			<p class="newer"><?php previous_posts_link('Newer Entries &raquo;') ?></p>
 			<div class="clear"></div>
 		</div><!--.oldernewer-->
+		<?php }?>
 
 	</div><!--#content-->
 <?php get_footer(); ?>

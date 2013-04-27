@@ -12,7 +12,7 @@ $(document).ready(function() {
 	var windowHeight = $(window).height();
 	var warningHeight = $('#warningtext').outerHeight();
 	
-	var newMargin = (windowHeight - warningHeight - headerHeight - postheaderHeight - 25) / 2;
+	var newMargin = (windowHeight - warningHeight - headerHeight - postheaderHeight - 30) / 2;
 	
 	$('#warningtext').css('margin',newMargin + 'px 0');
 	
