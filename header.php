@@ -40,6 +40,7 @@
 	<?php //wp_enqueue_script("jquery"); /* Loads jQuery if it hasn't been loaded already */ ?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/iphone-style-checkboxes.js" type="text/javascript"></script>
+	<script src="<?php bloginfo('template_url'); ?>/js/jquery.cookie.js" type="text/javascript"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/functions.js" type="text/javascript"></script>
 	
 	<?php /* The HTML5 Shim is required for older browsers, mainly older versions IE */ ?>
@@ -51,6 +52,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+
 <div class="none">
 	<p><a href="#content"><?php _e('Skip to Content'); ?></a></p><?php /* used for accessibility, particularly for screen reader applications */ ?>
 </div><!--.none-->
@@ -67,7 +69,7 @@
 	
 	<div id="nsfw-controls">
 		<div class="container">
-		<div id="toggle-container">
+		<div id="toggle-container" <?php echo (isset($_COOKIE["clarebayley.com-ageverification"]) ? '' : 'class="noCookie"'); ?> >
 			<div id="toggle"><input id="nsfw-check" type="checkbox" /></div>
 		</div>
 		</div>
