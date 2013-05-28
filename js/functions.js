@@ -1,5 +1,8 @@
+var AgeCookieName = "ClareBayleyDotComNsfwContent";
+
 $(document).ready(function() {
 
+	//center all images larger than post container
 	$('.post-content').find('img').each(function() {
 		var w = $(this).width();
 		if(w > 640){
@@ -7,38 +10,37 @@ $(document).ready(function() {
 		}		
 	});
 	
-	var headerHeight = $('#header').outerHeight();
-	var postheaderHeight = $('.post-header').outerHeight();
-	var windowHeight = $(window).height();
-	var warningHeight = $('#warningtext').outerHeight();
+	//set margins on NSFW warning box (only on homepage)
+	if ($('#warningtext').length > 0) {
+		var headerHeight = $('#header').outerHeight();
+		var postheaderHeight = $('.post-header').outerHeight();
+		var windowHeight = $(window).height();
+		var warningHeight = $('#warningtext').outerHeight();
+		
+		var newMargin = (windowHeight - warningHeight - headerHeight - postheaderHeight - 30) / 2;
+		$('#warningtext').css('margin',newMargin + 'px 0');
+	}
+
+	//console.log($.cookie(AgeCookieName))
+	if (!$.cookie(AgeCookieName)) {
+		hideNsfw();
+		$('#nsfw-controls #toggle-container.noCookie').click(function(){
+			showAgeCheck();
+		});
+	}else if ($.cookie(AgeCookieName) == "yes"){
+		$('#nsfw-controls #toggle #nsfw-check').attr('checked','yes');
+		enableToggle();
+	}else{
+		hideNsfw();
+		enableToggle();
+	}
 	
-	var newMargin = (windowHeight - warningHeight - headerHeight - postheaderHeight - 30) / 2;
-	
-	$('#warningtext').css('margin',newMargin + 'px 0');
-	
+	//initialize NSFW slider checkbox
 	$('#nsfw-check').iphoneStyle({
 		checkedLabel: 'NSFW',
 		uncheckedLabel: 'SFW'
 	});
-	
-	$('#nsfw-controls #toggle-container.noCookie').click(function(){
-		showAgeCheck();
-	});
-	
-	
-	$('#nsfw-controls #toggle').click(function(){
-	
-	
-		if ($('img.nsfw').is(':visible')){
-			hideNsfw();
-		}else{
-			showNsfw();
-		}
 		
-	});
-	
-	hideNsfw();
-	
 });
 
 
@@ -62,7 +64,7 @@ function hideNsfw(){
 			$(this).hide();
 		}else{
 			var text = $(this).text();
-			$(this).after("<span class='sfw'>"+text+"</span>")
+			$(this).after("<span class='sfw'>"+text+"</span>");
 			$(this).hide();
 		}
 	});
@@ -71,6 +73,27 @@ function hideNsfw(){
 function showNsfw(){
 		$('.sfw').hide();
 		$('.nsfw').show();
+}
+
+function enableToggle(){
+
+	$('#nsfw-controls #toggle-container').off('click');
+	$('#nsfw-controls #toggle #nsfw-check').css('pointer-events','all');
+
+	$('#nsfw-controls #toggle #nsfw-check').removeAttr('disabled');
+
+	$('#nsfw-controls #toggle').click(function(){
+
+		//TODO - check cookie instead of is visible
+		if ($.cookie(AgeCookieName) == "yes"){
+			hideNsfw();
+			$.cookie(AgeCookieName, "no", {expires: 365});
+		}else{
+			showNsfw();
+			$.cookie(AgeCookieName, "yes", {expires: 365});
+		}
+		
+	});
 }
 
 function showAgeCheck(){
@@ -82,12 +105,17 @@ $('#age_check-no').click(function(){
 });
 
 $('#age_check-yes').click(function(){
-	$('#nsfw-controls #toggle-container').off('click');
-	$('#nsfw-controls #toggle').css('pointer-events','all');
 	
-	$('#nsfw-controls #toggle').trigger('click');
+	$.cookie(AgeCookieName, "no", {expires: 365});
+	
+	enableToggle();
+
+	$('#nsfw-controls #toggle #nsfw-check').trigger('click');
+
 	
 	$('#age_check').remove();
+	
+	
 	
 });
 

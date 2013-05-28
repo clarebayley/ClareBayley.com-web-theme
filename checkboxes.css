@@ -30,9 +30,9 @@
     -moz-user-select: none;
     -khtml-user-select: none; }
 
-.iPhoneCheckDisabled {
+/*.iPhoneCheckDisabled {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
-  opacity: 0.5; }
+  opacity: 0.5; }*/
 
 label.iPhoneCheckLabelOn {
   color: white;

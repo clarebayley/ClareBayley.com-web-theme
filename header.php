@@ -69,8 +69,8 @@
 	
 	<div id="nsfw-controls">
 		<div class="container">
-		<div id="toggle-container" <?php echo (isset($_COOKIE["clarebayley.com-ageverification"]) ? '' : 'class="noCookie"'); ?> >
-			<div id="toggle"><input id="nsfw-check" type="checkbox" /></div>
+		<div id="toggle-container" <?php echo (isset($_COOKIE["ClareBayleyDotComNsfwContent"]) ? '' : 'class="noCookie"'); ?> >
+			<div id="toggle"><input id="nsfw-check" type="checkbox" disabled="true"  /></div>
 		</div>
 		</div>
 	</div>
