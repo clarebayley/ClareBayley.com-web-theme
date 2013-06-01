@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <div id="content" class="search">
 
-	<div class="box"><h2>Search results for: <?php the_search_query(); ?></h2></div>
+	<div class="headerBox"><h2><span class="faded">Search results for:&nbsp;&nbsp;&nbsp;</span> <?php the_search_query(); ?></h2></div>
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<div class="post-single">
@@ -20,11 +20,13 @@
 		
 	<?php endwhile; ?>
 	
+	<?php if (next_posts_link('next') != '' || previous_posts_link('prev') != ''){ ?>
 	<div class="newer-older">
 		<p class="older"><?php next_posts_link('&laquo; Older Entries') ?></p>
 		<p class="newer"><?php previous_posts_link('Newer Entries &raquo;') ?></p>
 		<div class="clear"></div>
 	</div><!--.oldernewer-->
+	<?php }?>
 	
 	<?php else: ?>
 		<div class="no-results box">
