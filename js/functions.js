@@ -2,6 +2,8 @@ var AgeCookieName = "ClareBayleyDotComNsfwContent";
 
 $(document).ready(function() {
 
+	$('.nsfw').show();
+
 	//center all images larger than post container
 	$('.post-content').find('img').each(function() {
 		var w = $(this).width();
