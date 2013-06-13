@@ -255,4 +255,17 @@
 		endswitch;
 	}
 	
+function strip_nsfw( $content ) {
+
+	$regexArg = '[\w\s"\'\/=:.?-]';
+
+	$content = preg_replace('/<img'.$regexArg.'*nsfw'.$regexArg.'*>/','',$content);
+	$content = preg_replace('/<a'.$regexArg.'*nsfw'.$regexArg.'*>[^<>]*<\/a>/','',$content);
+	
+	return $content;
+	//return "herpderp";
+}
+
+add_filter('strip_nsfw','strip_nsfw');
+	
 ?>
