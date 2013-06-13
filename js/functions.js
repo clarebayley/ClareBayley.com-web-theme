@@ -54,7 +54,8 @@ function hideNsfw(){
 		}else{
 			var h = $(this).outerHeight();
 			var w = $(this).outerWidth();
-			$(this).after("<img style='width:"+w+"px; height:"+h+"px; background-color:#000;' class='sfw' />")
+			var marginLeft = $(this).css('margin-left');
+			$(this).after("<img style='width:"+w+"px; height:"+h+"px; background-color:#000; margin-left:"+marginLeft+"' class='sfw' />")
 			$(this).hide();
 		}
 	});
