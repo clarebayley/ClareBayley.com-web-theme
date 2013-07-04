@@ -259,8 +259,8 @@ function strip_nsfw( $content ) {
 
 	$regexArg = '[\w\s"\'\/=:.?-]';
 
-	$content = preg_replace('/<img'.$regexArg.'*nsfw'.$regexArg.'*>/','',$content);
-	$content = preg_replace('/<a'.$regexArg.'*nsfw'.$regexArg.'*>[^<>]*<\/a>/','',$content);
+	$content = preg_replace('/<img'.$regexArg.'*nsfw'.$regexArg.'*>/','[image removed due to NSFW content]',$content);
+	$content = preg_replace('/<a'.$regexArg.'*nsfw'.$regexArg.'*>[^<>]*<\/a>/','[link removed due to NSFW content]',$content);
 	
 	return $content;
 	//return "herpderp";

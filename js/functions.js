@@ -55,7 +55,8 @@ function hideNsfw(){
 			var h = $(this).outerHeight();
 			var w = $(this).outerWidth();
 			var marginLeft = $(this).css('margin-left');
-			$(this).after("<img style='width:"+w+"px; height:"+h+"px; background-color:#000; margin-left:"+marginLeft+"' class='sfw' />")
+			//$(this).after("<img style='width:"+w+"px; height:"+h+"px; background-color:#000; margin-left:"+marginLeft+"' class='sfw' />");
+			$(this).after("<div style='width:"+w+"px; height:"+h+"px; background-color:#000; margin-left:"+marginLeft+"' class='sfw' ><div>This image has been suppressed due to NSFW content.<br />Use the toggle in the header to view it.</div></div>");
 			$(this).hide();
 		}
 	});
