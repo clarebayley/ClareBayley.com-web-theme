@@ -16,3 +16,7 @@ Version: 1
  * Feel free to use the Whiteboard Framework for commercial and non-commercial ventures.
  * We require a link in the CSS file and request a link on the website
 */
+
+.nsfw{
+	display: none;
+}
